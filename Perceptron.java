@@ -13,7 +13,7 @@ public class Perceptron {
 		outputs = numout;
 		outweights = new double[outputs];
 		for (int i = 0; i < outputs; i++) {
-			outweights[i] = Math.random();
+			outweights[i] = (Math.random() * 2 - 1);
 		}
 		value = 0.0;
 	}
