@@ -102,6 +102,11 @@ public class NeuralNet {
 		}
 	}
 
+	public double getCost(double [] feat, int la) {
+		totalcost = 0.0;
+		return totalcost;
+	}
+
 	public void printData() {
 		for (int i = 0; i < features.length; i++) {
 			for (int j = 0; j < features[i].length; j++) {
