@@ -5,5 +5,8 @@ public class InitNet {
 		NeuralNet annabelle = new NeuralNet(3, test);
 		annabelle.setInputs(ins);
 		System.out.println(annabelle);
+		System.out.println(annabelle.getOutput());
+		annabelle.readData("fake_features.x", "fake_labels.y");
+		annabelle.printData();
 	}
 }

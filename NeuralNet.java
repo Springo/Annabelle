@@ -7,11 +7,11 @@ public class NeuralNet {
 	private double [][] features;
 	private int [] labels;
 
-	public NeuralNet (int [] numunits) {
+	public NeuralNet(int [] numunits) {
 		this(numunits.length, numunits);
 	}
 
-	public NeuralNet (int numlay, int [] numunits) {
+	public NeuralNet(int numlay, int [] numunits) {
 		layers = numlay;
 		layersizes = numunits;
 		network = new Perceptron[layers][];
@@ -82,8 +82,33 @@ public class NeuralNet {
 		}
 	}
 
-	public void getOutput() {
-		
+	public int getOutput() {
+		int max = 0;
+		if (layersizes[layers - 1] == 1) {
+			if (network[layers - 1][0].getValue(0) > 0.5) {
+				return 1;
+			}
+			else {
+				return 0;
+			}
+		}
+		else {
+			for (int i = 0; i < layersizes[layers - 1]; i++) {
+				if (network[layers - 1][i].getValue(0) > network[layers - 1][max].getValue(0)) {
+					max = i;
+				}
+			}
+			return max;
+		}
+	}
+
+	public void printData() {
+		for (int i = 0; i < features.length; i++) {
+			for (int j = 0; j < features[i].length; j++) {
+				System.out.print(features[i][j] + ",");
+			}
+			System.out.print(labels[i] + "\n");
+		}
 	}
 
 	public String toString() {
